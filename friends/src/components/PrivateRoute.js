@@ -10,7 +10,7 @@ const PrivateRout = ({component: Component, ...rest}) => {
                     if(localStorage.getItem('token'))
                         <Component {...props} />
                     else
-                        <Redirect path='/' />
+                        <Redirect to='/' />
                 }
             }
         />

@@ -1,6 +1,8 @@
 import React,{ useState } from 'react';
+import { connect } from 'react-redux';
+import { loginAction } from '../actions';
 
-const LoginForm = () => {
+const LoginForm = props => {
     const [credentials, setCredentials] = useState({});
 
     const handleInputChange = e => {
@@ -10,6 +12,7 @@ const LoginForm = () => {
 
     const submitLoginCredentials = e => {
         e.preventDefault();
+        props.loginAction(credentials);
     }
 
     return(
@@ -29,4 +32,4 @@ const LoginForm = () => {
     );
 }
 
-export default LoginForm;
+export default connect(null, {loginAction})(LoginForm);

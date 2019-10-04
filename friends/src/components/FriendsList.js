@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Friend from './Friend';
 import { getFriendsAction } from '../actions';
+import AddFriendForm from './AddFriendForm';
 
 const FriendsList = props => {
 
@@ -12,6 +13,7 @@ const FriendsList = props => {
     return(
         props.loading ? <h1>Loading Friends</h1> :
         <div>
+            <AddFriendForm />
             {props.friends.map(friend => (
                  <Friend key={friend.id} 
                         friend={friend}/>

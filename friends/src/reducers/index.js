@@ -1,9 +1,12 @@
 import { FETCHING_LOGIN_ACTION,
-         SET_FRIEND_LIST_ACTION } from '../actions';
+         SET_FRIEND_LIST_ACTION,
+         ADDING_FRIEND_LOADING_ACTION 
+        } from '../actions';
 
 const initialState = {
     friendsList: [],
-    isLoading: false
+    isLoading: false,
+    isAddingLoad: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,11 +16,17 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             }
+        case ADDING_FRIEND_LOADING_ACTION:
+            return {
+                ...state,
+                isAddingLoad: true
+            }
         case SET_FRIEND_LIST_ACTION:
             return {
                 ...state,
                 friendsList: action.payload,
-                isLoading: false
+                isLoading: false,
+                isAddingLoad: false
             }
         default:
             return state;

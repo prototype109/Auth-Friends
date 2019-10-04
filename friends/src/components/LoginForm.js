@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { loginAction } from '../actions';
 
@@ -10,9 +10,10 @@ const LoginForm = props => {
                         [e.target.name]: e.target.value});
     }
 
-    const submitLoginCredentials = e => {
+    async function submitLoginCredentials(e){
         e.preventDefault();
-        props.loginAction(credentials);
+        await props.loginAction(credentials);
+        props.history.push('/friends');
     }
 
     return(

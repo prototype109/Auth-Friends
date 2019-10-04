@@ -1,16 +1,23 @@
-import { FETCHING_ACTION } from '../actions';
+import { FETCHING_LOGIN_ACTION,
+         SET_FRIEND_LIST_ACTION } from '../actions';
 
 const initialState = {
     friendsList: [],
-    isFetching: false
+    isLoading: false
 };
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
-        case FETCHING_ACTION:
+        case FETCHING_LOGIN_ACTION:
             return {
                 ...state,
-                isFetching: true
+                isLoading: true
+            }
+        case SET_FRIEND_LIST_ACTION:
+            return {
+                ...state,
+                friendsList: action.payload,
+                isLoading: false
             }
         default:
             return state;

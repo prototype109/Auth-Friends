@@ -8,9 +8,9 @@ const PrivateRout = ({component: Component, ...rest}) => {
             render={
                 props => {
                     if(localStorage.getItem('token'))
-                        <Component {...props} />
+                        return <Component {...props} />
                     else
-                        <Redirect to='/' />
+                        return <Redirect to='/' />
                 }
             }
         />

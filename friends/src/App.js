@@ -8,7 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
   return (
     <div className="App">
-      <Route path='/' component={LoginForm} />
+      <Route exact path='/' component={LoginForm} />
       <PrivateRoute path='/friends' 
                     component={FriendsList} />
     </div>

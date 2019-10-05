@@ -40,3 +40,15 @@ export const addFriendAction = friend => dispatch => {
             console.log('ERROR FROM ADDING FRIENDS: ', err);
         });
 }
+
+export const editFriendAction = friend => dispatch => {
+    //dispatch({type: ADDING_FRIEND_LOADING_ACTION});
+    axiosWithAuth().put(`/friends/${friend.id}`, friend)
+        .then(res => {
+            console.log('edited friend');
+            //dispatch({type: SET_FRIEND_LIST_ACTION, payload: res.data});
+        })
+        .catch(err => {
+            console.log('ERROR FROM ADDING FRIENDS: ', err);
+        });
+}

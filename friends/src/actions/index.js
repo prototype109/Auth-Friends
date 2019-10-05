@@ -49,6 +49,18 @@ export const editFriendAction = friend => dispatch => {
             //dispatch({type: SET_FRIEND_LIST_ACTION, payload: res.data});
         })
         .catch(err => {
-            console.log('ERROR FROM ADDING FRIENDS: ', err);
+            console.log('ERROR FROM EDITING FRIENDS: ', err);
+        });
+}
+
+export const deleteFriendAction = friend => dispatch => {
+    //dispatch({type: ADDING_FRIEND_LOADING_ACTION});
+    axiosWithAuth().delete(`/friends/${friend.id}`, friend)
+        .then(res => {
+            console.log('deleted friend');
+            //dispatch({type: SET_FRIEND_LIST_ACTION, payload: res.data});
+        })
+        .catch(err => {
+            console.log('ERROR FROM DELETING FRIENDS: ', err);
         });
 }
